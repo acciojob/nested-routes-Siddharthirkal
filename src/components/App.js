@@ -10,18 +10,22 @@ import {
 
 function Layout() {
   return (
-    <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/women">Women</Link>
-        </li>
-      </ul>
+    <main>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/women">Women</Link>
+            </li>
+          </ul>
+        </nav>
 
-      <Outlet />
-    </div>
+        <Outlet />
+      </div>
+    </main>
   );
 }
 
@@ -51,7 +55,6 @@ function Women() {
 
 function Item() {
   const { itemName } = useParams();
-
   return <p>{itemName}</p>;
 }
 
@@ -61,7 +64,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-
           <Route path="women" element={<Women />}>
             <Route path=":itemName" element={<Item />} />
           </Route>
